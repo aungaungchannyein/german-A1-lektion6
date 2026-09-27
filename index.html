@@ -1,0 +1,1884 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#2457b2">
+  <title>German Words — Lektion 6: Freizeit</title>
+  <style>
+    :root {
+      --ink: #173b2c;
+      --muted: #66736b;
+      --cream: #f4f1e9;
+      --paper: #fffdf8;
+      --line: #dcd9cf;
+      --gold: #f5bb45;
+      --orange: #eb7656;
+      --mint: #cbe4d5;
+      --shadow: 0 24px 70px rgba(28, 49, 39, .13);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 14% 12%, rgba(245,187,69,.20), transparent 25rem),
+        radial-gradient(circle at 90% 85%, rgba(203,228,213,.7), transparent 32rem),
+        var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    button { font: inherit; }
+    button:focus-visible { outline: 3px solid rgba(235,118,86,.38); outline-offset: 3px; }
+    .app { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 48px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.02em; }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px; color: #fff; background: var(--ink); box-shadow: 0 8px 20px rgba(23,59,44,.2); }
+    .lesson-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; }
+    .lesson-tag, .lesson-link { padding: 8px 13px; border: 1px solid rgba(23,59,44,.12); border-radius: 999px; color: var(--muted); background: rgba(255,255,255,.5); font-size: 13px; font-weight: 750; }
+    .lesson-link { color: var(--ink); text-decoration: none; transition: transform .18s ease, background .18s ease; }
+    .lesson-link:hover { transform: translateY(-1px); background: var(--paper); }
+    .hero { display: grid; grid-template-columns: minmax(0, .86fr) minmax(420px, 1.14fr); align-items: center; gap: clamp(36px, 7vw, 90px); min-height: calc(100vh - 118px); padding: 42px 0 54px; }
+    .eyebrow { margin: 0 0 18px; color: #b24b32; font-size: 12px; font-weight: 850; letter-spacing: .18em; text-transform: uppercase; }
+    h1 { margin: 0; max-width: 620px; color: #296bb4; font-family: Georgia, "Times New Roman", serif; font-size: clamp(48px, 7vw, 88px); font-weight: 500; line-height: .94; letter-spacing: -.055em; }
+    .intro { max-width: 540px; margin: 26px 0 0; color: var(--muted); font-size: clamp(17px, 2vw, 20px); line-height: 1.65; }
+    .mini-stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .stat { padding: 10px 14px; border-radius: 14px; background: rgba(255,255,255,.58); color: var(--muted); font-size: 13px; font-weight: 700; }
+    .stat strong { color: var(--ink); }
+    .sound-note { display: flex; gap: 12px; max-width: 510px; margin-top: 28px; padding: 16px 18px; border-left: 3px solid var(--gold); background: rgba(255,253,248,.64); color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .sound-note span:first-child { font-size: 20px; }
+    .study-panel { position: relative; }
+    .study-panel::before { content: ""; position: absolute; inset: 18px -14px -14px 18px; z-index: 0; border: 1px solid rgba(23,59,44,.12); border-radius: 35px; transform: rotate(2deg); }
+    .card { position: relative; z-index: 1; min-height: 530px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid rgba(23,59,44,.10); border-radius: 32px; background: var(--paper); box-shadow: var(--shadow); }
+    .card::after { content: ""; position: absolute; top: -65px; right: -54px; width: 180px; height: 180px; border-radius: 50%; background: var(--mint); opacity: .52; }
+    .card-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 25px 28px 0; }
+    .counter { color: var(--muted); font-size: 13px; font-weight: 800; letter-spacing: .08em; }
+    .shuffle { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 7px; border: 0; border-radius: 12px; padding: 9px 12px; color: var(--ink); background: #f0eee7; cursor: pointer; font-size: 13px; font-weight: 750; }
+    .word-area { flex: 1; display: grid; place-items: center; align-content: center; padding: 32px 36px 20px; text-align: center; }
+    .type { margin-bottom: 15px; padding: 6px 10px; border-radius: 999px; color: #a0442e; background: #fbe3d9; font-size: 11px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .word { margin: 0; max-width: 100%; font-family: Georgia, "Times New Roman", serif; font-size: clamp(45px, 6vw, 67px); font-weight: 500; line-height: 1.04; letter-spacing: -.045em; overflow-wrap: anywhere; }
+    .plural { min-height: 30px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin: 11px 0 0; color: var(--muted); font-size: 14px; }
+    .plural-listen { border: 0; border-radius: 9px; padding: 6px 9px; color: var(--ink); background: var(--mint); cursor: pointer; font-size: 12px; font-weight: 750; }
+    .plural-listen[hidden] { display: none; }
+    .pronunciation { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 24px; }
+    .pron-chip { padding: 8px 11px; border: 1px solid var(--line); border-radius: 10px; color: var(--muted); background: #faf8f2; font-size: 13px; }
+    .listen { display: inline-flex; align-items: center; gap: 9px; margin-top: 20px; border: 0; border-radius: 14px; padding: 13px 17px; color: #fff; background: var(--ink); cursor: pointer; box-shadow: 0 10px 22px rgba(23,59,44,.18); font-weight: 800; }
+    .listen.speaking { animation: pulse 1s ease-in-out infinite; }
+    @keyframes pulse { 50% { transform: scale(1.035); box-shadow: 0 0 0 8px rgba(23,59,44,.08); } }
+    .answer { width: calc(100% - 56px); min-height: 110px; margin: 0 28px 22px; padding: 19px 22px; border: 1px dashed #c9c5ba; border-radius: 18px; background: #f8f5ee; text-align: left; }
+    .answer.hidden { display: grid; place-items: center; cursor: pointer; color: var(--muted); font-weight: 750; text-align: center; }
+    .answer.hidden:hover { border-color: var(--orange); color: var(--ink); }
+    .meaning { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 25px; }
+    .example { margin: 9px 0 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .example-listen { display: inline-flex; align-items: center; gap: 7px; margin-top: 13px; border: 0; border-radius: 10px; padding: 8px 11px; color: var(--ink); background: var(--mint); cursor: pointer; font-size: 12px; font-weight: 800; }
+    .card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0 28px 28px; }
+    .grade { min-height: 50px; border: 0; border-radius: 15px; cursor: pointer; font-weight: 850; }
+    .review { color: #8a3b29; background: #f9ded4; }
+    .know { color: var(--ink); background: var(--gold); }
+    .progress-wrap { margin-top: 22px; }
+    .progress-label { display: flex; justify-content: space-between; margin-bottom: 8px; color: var(--muted); font-size: 12px; font-weight: 750; }
+    .progress-track { height: 8px; overflow: hidden; border-radius: 99px; background: rgba(23,59,44,.12); }
+    .progress-fill { height: 100%; width: 0; border-radius: inherit; background: var(--orange); transition: width .35s ease; }
+    .keys { margin-top: 14px; color: #879087; font-size: 11px; text-align: center; }
+    kbd { padding: 2px 6px; border: 1px solid #d7d3c9; border-bottom-width: 2px; border-radius: 5px; background: #fff; font-family: inherit; }
+    .reset { display: block; margin: 12px auto 0; border: 0; padding: 4px 8px; color: var(--muted); background: transparent; cursor: pointer; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
+    .section { padding: 92px 0 34px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 30px; }
+    .section-kicker { margin: 0 0 10px; color: #b24b32; font-size: 12px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
+    .section-title { margin: 0; max-width: 700px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(38px, 5vw, 58px); font-weight: 500; line-height: 1; letter-spacing: -.04em; }
+    .section-copy { max-width: 420px; margin: 0; color: var(--muted); line-height: 1.65; }
+    .quiz-card { display: grid; grid-template-columns: minmax(260px, .9fr) minmax(320px, 1.1fr); gap: 24px; padding: clamp(24px, 4vw, 48px); border-radius: 30px; color: #f8f5ee; background: var(--ink); box-shadow: var(--shadow); }
+    .quiz-prompt { display: flex; flex-direction: column; align-items: start; justify-content: center; min-height: 320px; padding: 8px 12px; }
+    .quiz-meta { color: #a8c5b5; font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .quiz-word { margin: 22px 0 10px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(42px, 6vw, 66px); font-weight: 500; line-height: 1; letter-spacing: -.04em; }
+    .quiz-instruction { margin: 8px 0 22px; color: #bfd2c7; line-height: 1.6; }
+    .quiz-listen { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.18); border-radius: 13px; padding: 11px 14px; color: #fff; background: rgba(255,255,255,.08); cursor: pointer; font-weight: 750; }
+    .quiz-side { display: flex; flex-direction: column; justify-content: center; padding: 22px; border-radius: 22px; color: var(--ink); background: var(--paper); }
+    .quiz-score { margin: 0 0 14px; color: var(--muted); font-size: 12px; font-weight: 800; }
+    .quiz-options { display: grid; gap: 10px; }
+    .quiz-option { min-height: 54px; border: 1px solid var(--line); border-radius: 14px; padding: 13px 16px; color: var(--ink); background: #fff; cursor: pointer; font-weight: 750; text-align: left; }
+    .quiz-option:hover:not(:disabled) { border-color: var(--orange); transform: translateY(-1px); }
+    .quiz-option.correct { border-color: #69a781; background: #dff0e5; }
+    .quiz-option.wrong { border-color: #d7775f; background: #f8ddd5; }
+    .quiz-option:disabled { cursor: default; }
+    .quiz-feedback { min-height: 24px; margin: 14px 0 8px; color: var(--muted); font-size: 13px; font-weight: 750; }
+    .next-quiz { align-self: start; border: 0; border-radius: 13px; padding: 12px 16px; color: var(--ink); background: var(--gold); cursor: pointer; font-weight: 850; }
+    .next-quiz[hidden] { display: none; }
+    .sentence-card { display: grid; grid-template-columns: minmax(230px, .75fr) minmax(0, 1.25fr); gap: clamp(22px, 5vw, 58px); align-items: center; min-height: 360px; padding: clamp(25px, 5vw, 54px); border: 1px solid rgba(23,59,44,.1); border-radius: 30px; background: var(--paper); box-shadow: var(--shadow); }
+    .sentence-meta { color: #b24b32; font-size: 12px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .sentence-word { margin: 18px 0 8px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(38px, 5vw, 58px); font-weight: 500; line-height: 1; letter-spacing: -.04em; }
+    .sentence-help { margin: 0; color: var(--muted); line-height: 1.55; }
+    .sentence-prompt { padding: 24px; border-radius: 22px; background: #f5f1e8; }
+    .sentence-label { margin: 0 0 8px; color: var(--muted); font-size: 11px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .sentence-english { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(23px, 3vw, 32px); line-height: 1.25; }
+    .sentence-score { margin: 10px 0 0; color: var(--muted); font-size: 12px; font-weight: 750; }
+    .sentence-answer { min-height: 78px; display: flex; flex-wrap: wrap; align-content: center; gap: 8px; margin: 20px 0 0; padding: 13px; border: 2px dashed #c9c5ba; border-radius: 16px; background: #fff; }
+    .sentence-answer.correct { border-color: #69a781; background: #e8f5ec; }
+    .sentence-answer.wrong { border-color: #d7775f; background: #fff1ec; }
+    .sentence-placeholder { align-self: center; width: 100%; color: #909991; font-size: 13px; text-align: center; }
+    .sentence-tiles { min-height: 68px; display: flex; flex-wrap: wrap; align-content: flex-start; gap: 8px; margin-top: 14px; }
+    .word-tile { min-height: 40px; border: 1px solid #d5d1c7; border-bottom-width: 3px; border-radius: 11px; padding: 7px 12px; color: var(--ink); background: #fff; cursor: pointer; font-weight: 800; }
+    .word-tile:hover:not(:disabled) { border-color: var(--orange); transform: translateY(-1px); }
+    .word-tile:disabled { cursor: default; opacity: .8; }
+    .sentence-feedback { min-height: 22px; margin: 13px 0 0; color: var(--muted); font-size: 13px; font-weight: 800; }
+    .sentence-feedback.correct { color: #32734c; }
+    .sentence-feedback.wrong { color: #a0442e; }
+    .sentence-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    .sentence-action { min-height: 44px; border: 0; border-radius: 12px; padding: 10px 14px; cursor: pointer; font-weight: 800; }
+    .sentence-action.secondary { color: var(--ink); background: var(--mint); }
+    .sentence-action.primary { color: var(--ink); background: var(--gold); }
+    .sentence-action.ghost { border: 1px solid var(--line); color: var(--muted); background: #fff; }
+    .bank { padding-bottom: 80px; }
+    .bank-tools { display: flex; gap: 10px; margin: -10px 0 22px; }
+    .bank-search, .bank-filter { min-height: 48px; border: 1px solid var(--line); border-radius: 14px; color: var(--ink); background: rgba(255,253,248,.88); font: inherit; }
+    .bank-search { flex: 1; min-width: 0; padding: 0 16px; }
+    .bank-filter { padding: 0 38px 0 14px; cursor: pointer; }
+    .bank-search:focus, .bank-filter:focus { outline: 3px solid rgba(235,118,86,.25); border-color: var(--orange); }
+    .bank-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .bank-card { display: grid; grid-template-columns: 36px minmax(0, 1fr) 42px; align-items: center; gap: 12px; min-height: 108px; padding: 16px; border: 1px solid rgba(23,59,44,.1); border-radius: 18px; background: rgba(255,253,248,.78); }
+    .bank-number { align-self: start; color: #a3aaa5; font-size: 11px; font-weight: 850; letter-spacing: .08em; }
+    .bank-word { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 22px; line-height: 1.1; }
+    .bank-meaning { margin: 6px 0 0; color: var(--muted); font-size: 12px; line-height: 1.4; }
+    .bank-plural-row { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 5px; }
+    .bank-plural { color: #a0442e; font-size: 11px; font-weight: 750; }
+    .bank-plural-listen { border: 0; border-radius: 8px; padding: 5px 8px; color: var(--ink); background: var(--gold); cursor: pointer; font-size: 10px; font-weight: 850; white-space: nowrap; }
+    .bank-ipa { display: block; margin-top: 5px; color: #8a928d; font-size: 11px; }
+    .bank-listen { width: 40px; height: 40px; display: grid; place-items: center; border: 0; border-radius: 12px; color: var(--ink); background: var(--mint); cursor: pointer; }
+    .bank-empty { grid-column: 1 / -1; padding: 34px; border: 1px dashed var(--line); border-radius: 18px; color: var(--muted); text-align: center; }
+    .footer { padding: 24px 0 10px; border-top: 1px solid rgba(23,59,44,.1); color: var(--muted); font-size: 12px; text-align: center; }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 54px; }
+      .hero-copy { text-align: center; }
+      .intro, .sound-note { margin-left: auto; margin-right: auto; }
+      .mini-stats { justify-content: center; }
+      .study-panel { width: min(590px, 100%); margin: 0 auto; }
+      .section-head { align-items: start; flex-direction: column; }
+      .quiz-card { grid-template-columns: 1fr; }
+      .quiz-prompt { min-height: 250px; }
+      .sentence-card { grid-template-columns: 1fr; }
+      .bank-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 520px) {
+      .app { width: min(100% - 20px, 1120px); padding-top: 14px; }
+      .brand span:last-child { display: none; }
+      .hero { gap: 32px; padding-top: 36px; }
+      h1 { font-size: 50px; }
+      .intro { font-size: 16px; }
+      .sound-note { text-align: left; }
+      .card { min-height: 510px; border-radius: 25px; }
+      .card-top { padding: 20px 20px 0; }
+      .word-area { padding: 28px 20px 18px; }
+      .word { font-size: 47px; }
+      .answer { width: calc(100% - 40px); margin: 0 20px 16px; }
+      .card-actions { padding: 0 20px 20px; }
+      .keys { display: none; }
+      .section { padding-top: 68px; }
+      .quiz-card { padding: 16px; border-radius: 24px; }
+      .quiz-prompt { min-height: 220px; padding: 18px 12px; }
+      .quiz-side { padding: 16px; }
+      .bank-grid { grid-template-columns: 1fr; }
+      .bank-tools { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+
+    /* Lektion 3: warm food-market theme */
+    :root {
+      --ink: #2b1736;
+      --muted: #756779;
+      --cream: #fff4e9;
+      --paper: #fffaf4;
+      --line: #ead4c7;
+      --gold: #f7b84b;
+      --orange: #e76658;
+      --mint: #a8d8c1;
+      --berry: #4c214f;
+      --berry-dark: #2b1736;
+      --coral: #f28b74;
+      --shadow: 0 28px 78px rgba(67, 34, 61, .16);
+    }
+    body {
+      background:
+        radial-gradient(circle at 8% 8%, rgba(247,184,75,.32), transparent 24rem),
+        radial-gradient(circle at 95% 48%, rgba(242,139,116,.22), transparent 30rem),
+        linear-gradient(180deg, #fff8f0 0%, #fdf1e6 55%, #f7eadf 100%);
+    }
+    .app { width: min(1180px, calc(100% - 32px)); }
+    .brand-mark { border-radius: 50%; color: var(--berry-dark); background: var(--gold); box-shadow: 0 8px 22px rgba(247,184,75,.34); }
+    .lesson-tag, .lesson-link { border-color: rgba(76,33,79,.15); background: rgba(255,250,244,.78); }
+    .hero {
+      position: relative;
+      min-height: auto;
+      margin-top: 24px;
+      padding: clamp(34px, 5vw, 62px);
+      overflow: hidden;
+      border-radius: 42px;
+      color: #fff9f4;
+      background:
+        radial-gradient(circle at 12% 15%, rgba(247,184,75,.28), transparent 18rem),
+        radial-gradient(circle at 88% 82%, rgba(242,139,116,.26), transparent 24rem),
+        linear-gradient(135deg, var(--berry-dark), var(--berry));
+      box-shadow: 0 35px 90px rgba(43,23,54,.24);
+    }
+    .hero::before { content: "Essen & Trinken"; position: absolute; right: -22px; bottom: 10px; color: rgba(255,255,255,.045); font-family: Georgia, serif; font-size: clamp(70px, 12vw, 160px); white-space: nowrap; }
+    .hero-copy, .study-panel { position: relative; z-index: 1; }
+    .hero .eyebrow { color: var(--gold); }
+    .hero .intro { color: rgba(255,249,244,.76); }
+    .hero .stat { color: rgba(255,249,244,.72); background: rgba(255,255,255,.09); }
+    .hero .stat strong { color: #fff; }
+    .hero .sound-note { border-left-color: var(--gold); color: rgba(255,249,244,.76); background: rgba(255,255,255,.075); }
+    .study-panel::before { border-color: rgba(255,255,255,.25); }
+    .card { border: 0; background: #fffaf4; box-shadow: 0 25px 70px rgba(15,7,18,.35); }
+    .card::after { width: 220px; height: 220px; background: linear-gradient(135deg, var(--gold), var(--coral)); opacity: .19; }
+    .word-badges { position: relative; z-index: 1; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 14px; }
+    .word-badges .type { margin: 0; color: #7d2f38; background: #ffe0d5; }
+    .category-badge { padding: 6px 10px; border-radius: 999px; color: var(--berry); background: #f7e6f2; font-size: 11px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .listen { background: linear-gradient(135deg, var(--berry), var(--berry-dark)); }
+    .plural-listen, .example-listen, .bank-listen { background: #d8eee4; }
+    .answer { border-color: #dfc8bb; background: #fff3e8; }
+    .usage-label { margin: 12px 0 0; color: #9b4250; font-size: 10px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+    .category-section { padding-top: 74px; }
+    .category-pills { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .category-pill { min-height: 116px; display: grid; grid-template-columns: 42px 1fr; align-items: center; gap: 12px; border: 1px solid rgba(76,33,79,.12); border-radius: 22px; padding: 17px; color: var(--ink); background: rgba(255,250,244,.78); cursor: pointer; text-align: left; transition: transform .18s ease, border-color .18s ease, background .18s ease; }
+    .category-pill:hover { transform: translateY(-3px); border-color: var(--coral); }
+    .category-pill.active { border-color: transparent; color: #fff; background: linear-gradient(135deg, var(--berry), #733665); box-shadow: 0 16px 34px rgba(76,33,79,.2); }
+    .category-icon { font-size: 28px; }
+    .category-label { display: block; font-family: Georgia, serif; font-size: 19px; font-weight: 700; }
+    .category-total { display: block; margin-top: 5px; opacity: .68; font-size: 11px; font-weight: 800; }
+    .category-focus { display: grid; grid-template-columns: 60px 1fr auto; align-items: center; gap: 18px; margin-top: 18px; padding: 20px 22px; border-radius: 22px; color: #fff; background: linear-gradient(110deg, #e86759, #f19073); box-shadow: 0 18px 40px rgba(231,103,89,.2); }
+    .category-focus-icon { font-size: 38px; }
+    .category-focus-label { display: block; font-family: Georgia, serif; font-size: 24px; }
+    .category-focus-copy { margin: 4px 0 0; color: rgba(255,255,255,.82); font-size: 13px; }
+    .category-reset { border: 1px solid rgba(255,255,255,.4); border-radius: 13px; padding: 11px 14px; color: #fff; background: rgba(255,255,255,.12); cursor: pointer; font-weight: 850; }
+    .quiz-card { background: linear-gradient(140deg, #3d1c46, #672c5c); }
+    .quiz-meta, .quiz-instruction { color: #e2cfe1; }
+    .sentence-card { border: 0; background: linear-gradient(135deg, #fffaf4 0%, #ffe9dc 100%); }
+    .sentence-prompt { background: rgba(255,255,255,.7); }
+    .section-kicker, .sentence-meta { color: #a84451; }
+    .bank-tools { flex-wrap: wrap; }
+    .bank-category { min-height: 48px; border: 1px solid var(--line); border-radius: 14px; padding: 0 38px 0 14px; color: var(--ink); background: rgba(255,250,244,.92); font: inherit; cursor: pointer; }
+    .bank-card { border-color: rgba(76,33,79,.1); background: rgba(255,250,244,.88); }
+    .bank-category-label { display: inline-block; margin-top: 7px; padding: 4px 7px; border-radius: 7px; color: #7f3850; background: #f7e6ef; font-size: 9px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .bank-plural-listen { background: var(--gold); }
+    .footer { border-color: rgba(76,33,79,.12); }
+    @media (max-width: 900px) { .category-pills { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 520px) {
+      .hero { margin-top: 16px; padding: 30px 18px; border-radius: 28px; }
+      .lesson-actions { gap: 5px; }
+      .lesson-link, .lesson-tag { padding: 7px 9px; font-size: 11px; }
+      .category-pills { grid-template-columns: 1fr; }
+      .category-pill { min-height: 88px; }
+      .category-focus { grid-template-columns: 46px 1fr; }
+      .category-reset { grid-column: 1 / -1; }
+      .bank-category { width: 100%; }
+    }
+
+
+    /* Lektion 5: time-and-calendar theme */
+    :root {
+      --ink: #172554;
+      --muted: #5e6d8a;
+      --cream: #f5f8ff;
+      --paper: #ffffff;
+      --line: #d7e1f2;
+      --gold: #f7bd45;
+      --orange: #ff8066;
+      --mint: #c8f1ec;
+      --berry: #2457b2;
+      --berry-dark: #172554;
+      --coral: #ff8066;
+      --shadow: 0 28px 78px rgba(23, 37, 84, .17);
+    }
+    body {
+      background-color: #f5f8ff;
+      background-image:
+        radial-gradient(circle at 12% 8%, rgba(85, 181, 223, .26), transparent 27rem),
+        radial-gradient(circle at 88% 16%, rgba(247, 189, 69, .22), transparent 23rem),
+        linear-gradient(rgba(36, 87, 178, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(36, 87, 178, .045) 1px, transparent 1px);
+      background-size: auto, auto, 32px 32px, 32px 32px;
+    }
+    .brand-mark { border-radius: 50%; color: #fff; background: linear-gradient(145deg, #318ac8, #2457b2); box-shadow: 0 10px 24px rgba(36,87,178,.25); }
+    .lesson-tag, .lesson-link { border-color: rgba(23,37,84,.16); background: rgba(255,255,255,.88); }
+    .hero { min-height: auto; margin-top: 22px; padding: clamp(30px, 5vw, 58px); border: 1px solid rgba(23,37,84,.10); border-radius: 28px; background: linear-gradient(135deg, rgba(255,255,255,.97), rgba(229,241,255,.96)); box-shadow: 0 34px 92px rgba(23,37,84,.15); }
+    .hero::before { content: "MEIN TAG"; right: -8px; bottom: -10px; color: rgba(36,87,178,.045); font-family: Inter, sans-serif; font-size: clamp(72px, 12vw, 154px); font-weight: 950; letter-spacing: -.07em; }
+    .hero h1 { color: #2457b2; }
+    .hero h1 span { color: #172554; font-size: .37em; letter-spacing: .08em; text-transform: uppercase; }
+    .hero .eyebrow, .section-kicker, .sentence-meta { color: #318ac8; }
+    .hero .intro { color: var(--muted); }
+    .hero .stat { color: #5e6d8a; background: rgba(255,255,255,.82); }
+    .hero .stat strong { color: var(--ink); }
+    .hero .sound-note { margin-top: 20px; border-left-color: var(--gold); color: #52627e; background: rgba(255,255,255,.76); }
+    .day-visual { display: grid; grid-template-columns: 128px 1fr; gap: 18px; align-items: center; margin-top: 24px; padding: 18px; border: 1px solid rgba(36,87,178,.13); border-radius: 20px; background: rgba(255,255,255,.74); box-shadow: 0 17px 40px rgba(23,37,84,.10); }
+    .clock-face { position: relative; width: 112px; aspect-ratio: 1; border: 9px solid #fff; border-radius: 50%; background: #eaf5ff; box-shadow: inset 0 0 0 1px #b9d5ed, 0 10px 24px rgba(23,37,84,.14); }
+    .clock-face::before, .clock-face::after { content: ""; position: absolute; left: 50%; bottom: 50%; width: 4px; border-radius: 4px; background: #2457b2; transform-origin: 50% 100%; }
+    .clock-face::before { height: 32px; transform: translateX(-50%) rotate(0deg); }
+    .clock-face::after { height: 41px; transform: translateX(-50%) rotate(105deg); background: #ff8066; }
+    .clock-dot { position: absolute; left: 50%; top: 50%; z-index: 2; width: 11px; height: 11px; border-radius: 50%; background: #172554; transform: translate(-50%, -50%); }
+    .day-lines { display: grid; gap: 9px; }
+    .day-line { display: grid; grid-template-columns: 42px 1fr; gap: 10px; align-items: center; color: #4e607e; font-size: 12px; font-weight: 800; }
+    .day-line i { display: block; height: 8px; border-radius: 99px; background: linear-gradient(90deg, #318ac8, #72c9dc); }
+    .day-line:nth-child(2) i { width: 78%; background: linear-gradient(90deg, #f7bd45, #ff8066); }
+    .day-line:nth-child(3) i { width: 91%; background: linear-gradient(90deg, #54baa9, #318ac8); }
+    .study-panel::before { inset: 16px -11px -11px 16px; border-color: rgba(36,87,178,.20); border-radius: 24px; transform: none; }
+    .card { min-height: 548px; border: 1px solid rgba(23,37,84,.10); border-radius: 24px; background: #fff; box-shadow: 0 24px 70px rgba(23,37,84,.19); }
+    .card::after { border-radius: 19px; background: linear-gradient(145deg, #72c9dc, #f7bd45); opacity: .19; }
+    .word-badges .type { color: #2457b2; background: #e1edff; }
+    .category-badge { color: #8a5200; background: #fff0c9; }
+    .listen { background: linear-gradient(135deg, #318ac8, #2457b2); }
+    .plural-listen, .example-listen, .bank-listen { background: #d9f4f0; }
+    .answer { border-color: #cbd9ed; background: #f5f8ff; }
+    .usage-label { color: #2457b2; }
+    .category-pill { border-radius: 18px; border-color: rgba(23,37,84,.12); background: rgba(255,255,255,.9); }
+    .category-pill:hover { border-color: #5cadd7; }
+    .category-pill.active { background: linear-gradient(135deg, #318ac8, #2457b2); box-shadow: 0 16px 36px rgba(36,87,178,.22); }
+    .category-focus { border-radius: 18px; background: linear-gradient(110deg, #ff8066, #f7bd45); box-shadow: 0 18px 40px rgba(255,128,102,.22); }
+    .quiz-card { border-radius: 24px; background: linear-gradient(145deg, #172554, #2457b2); }
+    .quiz-meta, .quiz-instruction { color: #d8e6ff; }
+    .sentence-card { border-radius: 24px; background: linear-gradient(135deg, #ffffff, #eaf5ff); }
+    .sentence-prompt { background: rgba(255,255,255,.84); }
+    .bank-card { border-radius: 16px; border-color: rgba(23,37,84,.10); background: rgba(255,255,255,.92); }
+    .bank-category-label { color: #2457b2; background: #e5efff; }
+    .bank-plural-listen { background: var(--gold); }
+    .footer { border-color: rgba(23,37,84,.14); }
+    @media (max-width: 520px) { .hero { margin-top: 14px; padding: 26px 17px; border-radius: 20px; } .day-visual { grid-template-columns: 88px 1fr; } .clock-face { width: 78px; border-width: 6px; } .clock-face::before { height: 23px; } .clock-face::after { height: 29px; } .card { border-radius: 18px; } }
+
+    /* Lektion 6: outdoor leisure theme */
+    :root {
+      --ink: #173e36;
+      --muted: #5b706b;
+      --cream: #eef6f2;
+      --paper: #fffef8;
+      --line: #cee0da;
+      --gold: #f5c650;
+      --orange: #e9874b;
+      --mint: #d7eee4;
+      --sky: #d9efff;
+      --blue: #2457b2;
+      --forest: #1f6a4f;
+      --shadow: 0 26px 75px rgba(19, 75, 58, .16);
+    }
+    body { background: radial-gradient(circle at 8% 8%, rgba(83,170,221,.18), transparent 28rem), radial-gradient(circle at 92% 34%, rgba(245,198,80,.22), transparent 27rem), linear-gradient(180deg, #f5fbff 0%, #eef7f1 55%, #f7f3df 100%); }
+    .app { width: min(1180px, calc(100% - 32px)); }
+    .brand-mark { background: linear-gradient(145deg, #2457b2, #1f6a4f); box-shadow: 0 9px 23px rgba(36,87,178,.24); }
+    .lesson-tag, .lesson-link { border-color: rgba(31,106,79,.18); background: rgba(255,255,255,.78); }
+    .hero { min-height: auto; margin-top: 24px; padding: clamp(28px, 4vw, 48px); border: 1px solid rgba(36,87,178,.12); border-radius: 34px; color: var(--ink); background: rgba(255,255,255,.72); box-shadow: var(--shadow); backdrop-filter: blur(12px); }
+    .hero::before { content: "FREIZEIT"; }
+    .hero h1 { color: #2457b2; }
+    .hero .eyebrow { color: #1f6a4f; }
+    .outdoor-visual { position: relative; overflow: hidden; margin: 26px 0 0; border-radius: 22px; box-shadow: 0 18px 42px rgba(24,73,57,.18); }
+    .outdoor-visual img { display: block; width: 100%; aspect-ratio: 16 / 6; object-fit: cover; }
+    .outdoor-caption { position: absolute; right: 12px; bottom: 10px; margin: 0; padding: 7px 10px; border-radius: 999px; color: #fff; background: rgba(16,52,44,.72); font-size: 11px; font-weight: 800; backdrop-filter: blur(8px); }
+    .sound-note { border-left-color: var(--gold); background: rgba(255,255,255,.7); }
+    .study-panel::before { border-color: rgba(36,87,178,.22); transform: rotate(1deg); }
+    .card { border-color: rgba(31,106,79,.14); background: var(--paper); }
+    .card::after { background: linear-gradient(140deg, #7dccdf, #f5c650); opacity: .22; }
+    .word-badges .type { color: #2457b2; background: #e3efff; }
+    .category-badge { color: #15553e; background: #dcf2e7; }
+    .listen { background: linear-gradient(135deg, #2457b2, #1f6a4f); }
+    .plural-listen, .example-listen, .bank-listen { background: #d9f1e7; }
+    .answer { border-color: #bfd8d0; background: #f4faf7; }
+    .usage-label, .section-kicker { color: #1f6a4f; }
+    .category-pill { border-color: rgba(31,106,79,.16); background: rgba(255,255,255,.88); }
+    .category-pill:hover { border-color: #53aadd; }
+    .category-pill.active { background: linear-gradient(135deg, #2457b2, #1f6a4f); box-shadow: 0 15px 34px rgba(31,106,79,.22); }
+    .category-focus { color: var(--ink); background: linear-gradient(110deg, #f5c650, #ffd982); box-shadow: 0 17px 38px rgba(210,157,38,.2); }
+    .category-focus-copy { color: #405c53; }
+    .category-reset { border-color: rgba(23,62,54,.28); color: var(--ink); background: rgba(255,255,255,.38); }
+    .quiz-card { background: linear-gradient(145deg, #163f36, #2457b2); }
+    .quiz-meta, .quiz-instruction { color: #dceeff; }
+    .sentence-card { background: linear-gradient(135deg, #fff, #eef9f4); }
+    .sentence-prompt { background: rgba(255,255,255,.88); }
+    .bank-card { border-color: rgba(31,106,79,.13); background: rgba(255,255,255,.9); }
+    .bank-category-label { color: #2457b2; background: #e4f0ff; }
+    .footer { border-color: rgba(31,106,79,.15); }
+    @media (max-width: 860px) { .hero { padding: 26px; } }
+    @media (max-width: 520px) { .hero { margin-top: 14px; padding: 22px 16px; border-radius: 22px; } .outdoor-visual { border-radius: 15px; } }
+
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">DE</span><span>Wort für Wort</span></div>
+      <div class="lesson-actions"><a class="lesson-link" href="german-lesson-1.html" target="_top">Lektion 1</a><a class="lesson-link" href="german-lesson-2.html" target="_top">Lektion 2</a><a class="lesson-link" href="german-lesson-3.html" target="_top">Lektion 3</a><a class="lesson-link" href="german-lesson-4.html" target="_top">Lektion 4</a><a class="lesson-link" href="german-lesson-5.html" target="_top">← Lektion 5</a><div class="lesson-tag">Lektion 6 · 99 Wörter · A1</div></div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">German vocabulary trainer</p>
+        <h1><span>Lektion 6</span><br>Freizeit.</h1>
+        <p class="intro">Study 99 words for weather, picnics, hobbies, travel, seasons, and nature—with pronunciation, plurals, and useful A1 sentences.</p>
+        <div class="mini-stats" aria-label="Lesson statistics"><span class="stat"><strong>99</strong> words</span><span class="stat"><strong id="learnedStat">0</strong> learned</span><span class="stat"><strong id="reviewStat">0</strong> to review</span></div>
+        <figure class="outdoor-visual"><img src="lektion6-outdoor.webp" alt="A bicycle and picnic overlooking green hills, a lake, and distant mountains" width="1600" height="600"><figcaption class="outdoor-caption">Draußen lernen · Learn outdoors</figcaption></figure>
+        <div class="sound-note"><span aria-hidden="true">💡</span><span><strong>Learning tip:</strong> Say each word aloud, then build its example sentence. Learn every noun with its article and plural.</span></div>
+      </div>
+      <div class="study-panel">
+        <article class="card" aria-live="polite">
+          <div class="card-top"><span class="counter" id="counter">WORD 001 / 99</span><button class="shuffle" id="shuffleBtn" type="button" aria-label="Shuffle words"><span aria-hidden="true">↝</span> Shuffle</button></div>
+          <div class="word-area"><div class="word-badges"><span class="type" id="wordType">Noun</span><span class="category-badge" id="wordCategory">🏔️ Travel &amp; Nature</span></div><h2 class="word" id="word" lang="de">der Ausflug</h2><p class="plural"><span id="pluralText" lang="de">Plural: die Ausflüge</span><button class="plural-listen" id="pluralListenBtn" type="button"><span aria-hidden="true">🔊</span> Hear plural</button></p><div class="pronunciation"><span class="pron-chip" id="ipa">/deːɐ̯ ˈaʊ̯sfluːk/</span><span class="pron-chip" id="sound">dair OWS-flook</span></div><button class="listen" id="listenBtn" type="button"><span aria-hidden="true">🔊</span><span>Listen in German</span></button></div>
+          <button class="answer hidden" id="answerReveal" type="button" aria-expanded="false" aria-controls="answer">Tap to reveal the meaning and sentence</button><div class="answer" id="answer" hidden></div>
+          <div class="card-actions"><button class="grade review" id="reviewBtn" type="button">Review again</button><button class="grade know" id="knowBtn" type="button">I know this</button></div>
+        </article>
+        <div class="progress-wrap"><div class="progress-label"><span>Lesson progress</span><span id="progressText">0 of 99 checked</span></div><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div></div><p class="keys"><kbd>Space</kbd> reveal · <kbd>←</kbd> previous · <kbd>→</kbd> next</p><button class="reset" id="resetBtn" type="button">Reset saved progress</button>
+      </div>
+    </section>
+
+
+    <section class="section category-section" id="categories">
+      <div class="section-head"><div><p class="section-kicker">Choose your study trail</p><h2 class="section-title">Learn one outdoor theme at a time.</h2></div><p class="section-copy">One category choice updates the flashcards, quiz, sentence builder, and word bank together.</p></div>
+      <div class="category-pills" id="categoryPills" aria-label="Vocabulary categories"></div>
+      <div class="category-focus" aria-live="polite"><span class="category-focus-icon" id="categoryFocusIcon" aria-hidden="true">✦</span><div><strong class="category-focus-label" id="categoryFocusLabel">All words · 99 words</strong><p class="category-focus-copy" id="categoryFocusCopy">Study the complete Lektion 6 vocabulary list.</p></div><button class="category-reset" id="categoryReset" type="button" hidden>Show all words</button></div>
+    </section>
+
+    <section class="section" id="quiz">
+      <div class="section-head">
+        <div><p class="section-kicker">Quick check</p><h2 class="section-title">Can you remember the meaning?</h2></div>
+        <p class="section-copy">Choose the English meaning. Use the speaker whenever you want to hear the German word again.</p>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-prompt">
+          <span class="quiz-meta">What does this mean?</span>
+          <h3 class="quiz-word" id="quizWord" lang="de">bis</h3>
+          <p class="quiz-instruction" id="quizPronunciation">/bɪs/</p>
+          <button class="quiz-listen" id="quizListenBtn" type="button"><span aria-hidden="true">🔊</span> Hear the word</button>
+        </div>
+        <div class="quiz-side">
+          <p class="quiz-score" id="quizScore">0 correct · 0 tried</p>
+          <div class="quiz-options" id="quizOptions"></div>
+          <p class="quiz-feedback" id="quizFeedback" role="status"></p>
+          <button class="next-quiz" id="nextQuizBtn" type="button" hidden>Next word →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sentences">
+      <div class="section-head">
+        <div><p class="section-kicker">Sentence builder</p><h2 class="section-title">Build the sentence. Use the word naturally.</h2></div>
+        <p class="section-copy">Every word includes a practical A1 sentence about weather, travel, nature, or leisure. Read the English hint, build the German sentence, check it, and hear it aloud.</p>
+      </div>
+      <article class="sentence-card">
+        <div>
+          <span class="sentence-meta" id="sentenceMeta">Sentence 001 / 86</span>
+          <h3 class="sentence-word" id="sentenceWord" lang="de">bis</h3>
+          <p class="sentence-help">Tap the word tiles in the correct order, then check your answer.</p>
+          <p class="sentence-score" id="sentenceScore">0 correct · 0 tried</p>
+        </div>
+        <div class="sentence-prompt">
+          <p class="sentence-label">English hint</p>
+          <p class="sentence-english" id="sentenceEnglish">I work until five o’clock.</p>
+          <div class="sentence-answer" id="sentenceAnswer" lang="de" aria-label="Your German sentence"><span class="sentence-placeholder">Your sentence will appear here</span></div>
+          <div class="sentence-tiles" id="sentenceTiles" lang="de" aria-label="Available German words"></div>
+          <p class="sentence-feedback" id="sentenceFeedback" role="status"></p>
+          <div class="sentence-actions">
+            <button class="sentence-action secondary" id="sentenceListenBtn" type="button"><span aria-hidden="true">🔊</span> Hear sentence</button>
+            <button class="sentence-action ghost" id="sentenceClearBtn" type="button">Clear</button>
+            <button class="sentence-action ghost" id="sentenceShowBtn" type="button">Show answer</button>
+            <button class="sentence-action primary" id="sentenceCheckBtn" type="button">Check answer</button>
+            <button class="sentence-action primary" id="sentenceNextBtn" type="button" hidden>Next sentence →</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section bank">
+      <div class="section-head">
+        <div><p class="section-kicker">Word bank</p><h2 class="section-title">All 99 words at a glance.</h2></div>
+        <p class="section-copy">The article is part of every German noun—learn it together with the word.</p>
+      </div>
+      <div class="bank-tools" role="search">
+        <input class="bank-search" id="bankSearch" type="search" placeholder="Search German or English…" aria-label="Search the word bank">
+        <select class="bank-category" id="bankCategory" aria-label="Filter words by category"><option value="all">✦ All words</option><option value="weather">☀️ Weather</option><option value="food">🧺 Food &amp; Picnic</option><option value="hobbies">🚲 Hobbies &amp; Sports</option><option value="travel">🏔️ Travel &amp; Nature</option><option value="seasons">🧭 Seasons &amp; Directions</option><option value="people">👥 People</option><option value="useful">💬 Useful Words</option></select><select class="bank-filter" id="bankFilter" aria-label="Filter words by type">
+          <option value="all">All word types</option>
+          <option value="noun">Nouns</option>
+          <option value="verb">Verbs</option>
+          <option value="other">Other words & phrases</option>
+        </select>
+      </div>
+      <div class="bank-grid" id="bankGrid"></div>
+    </section>
+    <footer class="footer">Lektion 6 · Freizeit · 99 words · Developed by Chan</footer>
+  </main>
+
+  <script>
+(function lessonRuntime() {
+  const words = [
+  {
+    "word": "der Ausflug",
+    "type": "noun",
+    "category": "travel",
+    "plural": "Plural: die Ausflüge",
+    "meaning": "excursion / day trip",
+    "ipa": "/deːɐ̯ ˈaʊ̯sfluːk/",
+    "sound": "dair OWS-flook",
+    "example": "Wir machen am Samstag einen Ausflug. — We are taking a day trip on Saturday."
+  },
+  {
+    "word": "das Auto",
+    "type": "noun",
+    "category": "travel",
+    "plural": "Plural: die Autos",
+    "meaning": "car",
+    "ipa": "/das ˈaʊ̯to/",
+    "sound": "dahs OW-toh",
+    "example": "Das Auto steht vor dem Haus. — The car is in front of the house."
+  },
+  {
+    "word": "wandern",
+    "type": "verb",
+    "category": "travel",
+    "meaning": "to hike",
+    "ipa": "/ˈvandɐn/",
+    "sound": "VAHN-dern",
+    "example": "Wir wandern gern in den Bergen. — We like hiking in the mountains."
+  },
+  {
+    "word": "das Picknick",
+    "type": "noun",
+    "category": "food",
+    "plural": "Plural: die Picknicks",
+    "meaning": "picnic",
+    "ipa": "/das ˈpɪknɪk/",
+    "sound": "dahs PIK-nik",
+    "example": "Bei Sonne machen wir ein Picknick. — When it is sunny, we have a picnic."
+  },
+  {
+    "word": "die Gitarre",
+    "type": "noun",
+    "category": "hobbies",
+    "plural": "Plural: die Gitarren",
+    "meaning": "guitar",
+    "ipa": "/diː ɡiˈtaʁə/",
+    "sound": "dee gee-TAH-ruh",
+    "example": "Mia spielt am Abend Gitarre. — Mia plays guitar in the evening."
+  },
+  {
+    "word": "telefonieren",
+    "type": "verb",
+    "category": "hobbies",
+    "meaning": "to telephone",
+    "ipa": "/telefoˈniːʁən/",
+    "sound": "teh-leh-foh-NEER-en",
+    "example": "Ich telefoniere mit meiner Freundin. — I talk on the phone with my friend."
+  },
+  {
+    "word": "fotografieren",
+    "type": "verb",
+    "category": "hobbies",
+    "meaning": "to photograph",
+    "ipa": "/fotoɡʁaˈfiːʁən/",
+    "sound": "foh-toh-grah-FEER-en",
+    "example": "Im Urlaub fotografiert Ben die Natur. — On vacation Ben photographs nature."
+  },
+  {
+    "word": "die Sonne",
+    "type": "noun",
+    "category": "weather",
+    "plural": "Plural: die Sonnen",
+    "meaning": "sun",
+    "ipa": "/diː ˈzɔnə/",
+    "sound": "dee ZON-uh",
+    "example": "Heute scheint die Sonne. — The sun is shining today."
+  },
+  {
+    "word": "scheinen",
+    "type": "verb",
+    "category": "weather",
+    "meaning": "to shine",
+    "ipa": "/ˈʃaɪ̯nən/",
+    "sound": "SHY-nen",
+    "example": "Am Morgen scheint die Sonne. — The sun shines in the morning."
+  },
+  {
+    "word": "regnen",
+    "type": "verb",
+    "category": "weather",
+    "meaning": "to rain",
+    "ipa": "/ˈʁeːɡnən/",
+    "sound": "RAYG-nen",
+    "example": "Morgen soll es regnen. — It is supposed to rain tomorrow."
+  },
+  {
+    "word": "viel-",
+    "speech": "viel",
+    "type": "other",
+    "category": "useful",
+    "meaning": "much / many",
+    "ipa": "/fiːl/",
+    "sound": "feel",
+    "example": "Im Park sind viele Leute. — There are many people in the park."
+  },
+  {
+    "word": "die Wolke",
+    "type": "noun",
+    "category": "weather",
+    "plural": "Plural: die Wolken",
+    "meaning": "cloud",
+    "ipa": "/diː ˈvɔlkə/",
+    "sound": "dee VOL-kuh",
+    "example": "Am Himmel ist eine Wolke. — There is a cloud in the sky."
+  },
+  {
+    "word": "das Wetter",
+    "type": "noun",
+    "category": "weather",
+    "meaning": "weather",
+    "ipa": "/das ˈvɛtɐ/",
+    "sound": "dahs VET-ter",
+    "example": "Das Wetter ist heute schön. — The weather is nice today.",
+    "pluralNote": "Usually singular: das Wetter"
+  },
+  {
+    "word": "los (losgehen)",
+    "speech": "losgehen",
+    "type": "other",
+    "category": "useful",
+    "meaning": "off / let’s go",
+    "ipa": "/loːs/",
+    "sound": "lohs",
+    "example": "Wir gehen um neun Uhr los. — We set off at nine o’clock."
+  },
+  {
+    "word": "vergessen",
+    "type": "verb",
+    "category": "useful",
+    "meaning": "to forget",
+    "ipa": "/fɛɐ̯ˈɡɛsn̩/",
+    "sound": "fair-GESS-en",
+    "example": "Vergiss bitte die Getränke nicht. — Please do not forget the drinks."
+  },
+  {
+    "word": "bringen",
+    "type": "verb",
+    "category": "useful",
+    "meaning": "to bring",
+    "ipa": "/ˈbʁɪŋən/",
+    "sound": "BRING-en",
+    "example": "Ich bringe Brot zum Picknick. — I am bringing bread to the picnic."
+  },
+  {
+    "word": "das Grad",
+    "type": "noun",
+    "category": "weather",
+    "meaning": "degree",
+    "ipa": "/das ɡʁaːt/",
+    "sound": "dahs graht",
+    "example": "Heute sind es zwanzig Grad. — It is twenty degrees today.",
+    "pluralNote": "Temperature unit stays unchanged: zwanzig Grad"
+  },
+  {
+    "word": "warm",
+    "type": "adjective",
+    "category": "weather",
+    "meaning": "warm",
+    "ipa": "/vaʁm/",
+    "sound": "varm",
+    "example": "Am Nachmittag wird es warm. — It gets warm in the afternoon."
+  },
+  {
+    "word": "windig",
+    "type": "adjective",
+    "category": "weather",
+    "meaning": "windy",
+    "ipa": "/ˈvɪndɪç/",
+    "sound": "VIN-dikh",
+    "example": "An der Küste ist es windig. — It is windy on the coast."
+  },
+  {
+    "word": "kalt",
+    "type": "adjective",
+    "category": "weather",
+    "meaning": "cold",
+    "ipa": "/kalt/",
+    "sound": "kahlt",
+    "example": "Im Winter ist es oft kalt. — It is often cold in winter."
+  },
+  {
+    "word": "schneien",
+    "type": "verb",
+    "category": "weather",
+    "meaning": "to snow",
+    "ipa": "/ˈʃnaɪ̯ən/",
+    "sound": "SHNY-en",
+    "example": "In den Bergen kann es schneien. — It can snow in the mountains."
+  },
+  {
+    "word": "bewölkt",
+    "type": "adjective",
+    "category": "weather",
+    "meaning": "cloudy",
+    "ipa": "/bəˈvœlkt/",
+    "sound": "buh-VOELKT",
+    "example": "Heute ist der Himmel bewölkt. — The sky is cloudy today."
+  },
+  {
+    "word": "der Norden",
+    "type": "noun",
+    "category": "seasons",
+    "meaning": "north",
+    "ipa": "/deːɐ̯ ˈnɔʁdn̩/",
+    "sound": "dair NOR-den",
+    "example": "Im Norden ist es kühler. — It is cooler in the north.",
+    "pluralNote": "Usually singular: der Norden"
+  },
+  {
+    "word": "der Osten",
+    "type": "noun",
+    "category": "seasons",
+    "meaning": "east",
+    "ipa": "/deːɐ̯ ˈɔstn̩/",
+    "sound": "dair OSS-ten",
+    "example": "Die Sonne geht im Osten auf. — The sun rises in the east.",
+    "pluralNote": "Usually singular: der Osten"
+  },
+  {
+    "word": "der Süden",
+    "type": "noun",
+    "category": "seasons",
+    "meaning": "south",
+    "ipa": "/deːɐ̯ ˈzyːdn̩/",
+    "sound": "dair ZUE-den",
+    "example": "Im Süden ist es warm. — It is warm in the south.",
+    "pluralNote": "Usually singular: der Süden"
+  },
+  {
+    "word": "der Westen",
+    "type": "noun",
+    "category": "seasons",
+    "meaning": "west",
+    "ipa": "/deːɐ̯ ˈvɛstn̩/",
+    "sound": "dair VESS-ten",
+    "example": "Der Wind kommt aus dem Westen. — The wind comes from the west.",
+    "pluralNote": "Usually singular: der Westen"
+  },
+  {
+    "word": "schlecht",
+    "type": "adjective",
+    "category": "weather",
+    "meaning": "bad",
+    "ipa": "/ʃlɛçt/",
+    "sound": "shlekht",
+    "example": "Das Wetter ist heute schlecht. — The weather is bad today."
+  },
+  {
+    "word": "der Wetterbericht",
+    "type": "noun",
+    "category": "weather",
+    "plural": "Plural: die Wetterberichte",
+    "meaning": "weather report",
+    "ipa": "/deːɐ̯ ˈvɛtɐbəˌʁɪçt/",
+    "sound": "dair VET-ter-buh-rikht",
+    "example": "Ich höre den Wetterbericht im Radio. — I listen to the weather report on the radio."
+  },
+  {
+    "word": "das Radio",
+    "type": "noun",
+    "category": "weather",
+    "plural": "Plural: die Radios",
+    "meaning": "radio",
+    "ipa": "/das ˈʁaːdi̯o/",
+    "sound": "dahs RAH-dee-oh",
+    "example": "Im Radio kommt der Wetterbericht. — The weather report is on the radio."
+  },
+  {
+    "word": "das Internet",
+    "type": "noun",
+    "category": "weather",
+    "plural": "Plural: die Internets",
+    "meaning": "internet",
+    "ipa": "/das ˈɪntɐnɛt/",
+    "sound": "dahs IN-ter-net",
+    "example": "Im Internet sehe ich das Wetter. — I check the weather online."
+  },
+  {
+    "word": "sonnig",
+    "type": "adjective",
+    "category": "weather",
+    "meaning": "sunny",
+    "ipa": "/ˈzɔnɪç/",
+    "sound": "ZON-ikh",
+    "example": "Morgen wird es sonnig. — It will be sunny tomorrow."
+  },
+  {
+    "word": "morgen",
+    "type": "adverb",
+    "category": "weather",
+    "meaning": "tomorrow",
+    "ipa": "/ˈmɔʁɡn̩/",
+    "sound": "MOR-gen",
+    "example": "Morgen fahren wir an den See. — Tomorrow we are going to the lake."
+  },
+  {
+    "word": "steigen",
+    "type": "verb",
+    "category": "weather",
+    "meaning": "to rise / climb",
+    "ipa": "/ˈʃtaɪ̯ɡn̩/",
+    "sound": "SHTY-gen",
+    "example": "Die Temperaturen steigen am Mittag. — The temperatures rise at midday."
+  },
+  {
+    "word": "überall",
+    "type": "adverb",
+    "category": "weather",
+    "meaning": "everywhere",
+    "ipa": "/yːbɐˈʔal/",
+    "sound": "ue-ber-ALL",
+    "example": "Heute scheint überall die Sonne. — The sun is shining everywhere today."
+  },
+  {
+    "word": "die Temperatur",
+    "type": "noun",
+    "category": "weather",
+    "plural": "Plural: die Temperaturen",
+    "meaning": "temperature",
+    "ipa": "/diː tɛmpəʁaˈtuːɐ̯/",
+    "sound": "dee tem-peh-rah-TOOR",
+    "example": "Die Temperatur liegt bei zehn Grad. — The temperature is ten degrees."
+  },
+  {
+    "word": "der Regen",
+    "type": "noun",
+    "category": "weather",
+    "meaning": "rain",
+    "ipa": "/deːɐ̯ ˈʁeːɡn̩/",
+    "sound": "dair RAY-gen",
+    "example": "Nach dem Regen kommt die Sonne. — The sun comes out after the rain.",
+    "pluralNote": "Usually singular: der Regen"
+  },
+  {
+    "word": "der Schnee",
+    "type": "noun",
+    "category": "weather",
+    "meaning": "snow",
+    "ipa": "/deːɐ̯ ʃneː/",
+    "sound": "dair shnay",
+    "example": "Die Kinder spielen im Schnee. — The children play in the snow.",
+    "pluralNote": "Usually singular: der Schnee"
+  },
+  {
+    "word": "heute",
+    "type": "adverb",
+    "category": "weather",
+    "meaning": "today",
+    "ipa": "/ˈhɔɪ̯tə/",
+    "sound": "HOY-tuh",
+    "example": "Heute bleiben wir zu Hause. — Today we are staying at home."
+  },
+  {
+    "word": "bleiben",
+    "type": "verb",
+    "category": "weather",
+    "meaning": "to stay / remain",
+    "ipa": "/ˈblaɪ̯bn̩/",
+    "sound": "BLY-ben",
+    "example": "Bei Regen bleiben wir drinnen. — When it rains, we stay inside."
+  },
+  {
+    "word": "minus",
+    "type": "other",
+    "category": "weather",
+    "meaning": "minus / below zero",
+    "ipa": "/ˈmiːnʊs/",
+    "sound": "MEE-noos",
+    "example": "In der Nacht sind es minus zwei Grad. — At night it is minus two degrees."
+  },
+  {
+    "word": "die Speisekarte",
+    "type": "noun",
+    "category": "food",
+    "plural": "Plural: die Speisekarten",
+    "meaning": "menu",
+    "ipa": "/diː ˈʃpaɪ̯zəˌkaʁtə/",
+    "sound": "dee SHPY-zuh-kar-tuh",
+    "example": "Die Speisekarte liegt auf dem Tisch. — The menu is on the table."
+  },
+  {
+    "word": "die Speise",
+    "type": "noun",
+    "category": "food",
+    "plural": "Plural: die Speisen",
+    "meaning": "dish / food",
+    "ipa": "/diː ˈʃpaɪ̯zə/",
+    "sound": "dee SHPY-zuh",
+    "example": "Diese Speise ist sehr lecker. — This dish is very tasty."
+  },
+  {
+    "word": "der/das Ketchup",
+    "speech": "der oder das Ketchup",
+    "type": "noun",
+    "category": "food",
+    "plural": "Plural: die Ketchups",
+    "meaning": "ketchup",
+    "ipa": "/ˈkɛtʃap/",
+    "sound": "KETCH-up",
+    "example": "Zum Hamburger nehme ich Ketchup. — I have ketchup with the hamburger."
+  },
+  {
+    "word": "der Hamburger",
+    "type": "noun",
+    "category": "food",
+    "plural": "Plural: die Hamburger",
+    "meaning": "hamburger",
+    "ipa": "/deːɐ̯ ˈhambʊʁɡɐ/",
+    "sound": "dair HAM-boor-ger",
+    "example": "Ich nehme einen Hamburger. — I’ll have a hamburger."
+  },
+  {
+    "word": "der Schinken",
+    "type": "noun",
+    "category": "food",
+    "plural": "Plural: die Schinken",
+    "meaning": "ham",
+    "ipa": "/deːɐ̯ ˈʃɪŋkn̩/",
+    "sound": "dair SHING-ken",
+    "example": "Auf der Pizza ist Schinken. — There is ham on the pizza."
+  },
+  {
+    "word": "das Dessert",
+    "type": "noun",
+    "category": "food",
+    "plural": "Plural: die Desserts",
+    "meaning": "dessert",
+    "ipa": "/das dɛˈsɛːɐ̯/",
+    "sound": "dahs deh-SAIR",
+    "example": "Als Dessert esse ich Eis. — I eat ice cream for dessert."
+  },
+  {
+    "word": "nehmen",
+    "type": "verb",
+    "category": "food",
+    "meaning": "to take / have",
+    "ipa": "/ˈneːmən/",
+    "sound": "NAY-men",
+    "example": "Ich nehme eine Suppe. — I’ll have a soup."
+  },
+  {
+    "word": "doch",
+    "type": "other",
+    "category": "useful",
+    "meaning": "but / after all / yes (contradiction)",
+    "ipa": "/dɔx/",
+    "sound": "dokh",
+    "example": "Komm doch mit zum Picknick! — Do come along to the picnic!"
+  },
+  {
+    "word": "der Papa",
+    "type": "noun",
+    "category": "people",
+    "plural": "Plural: die Papas",
+    "meaning": "dad",
+    "ipa": "/deːɐ̯ ˈpapa/",
+    "sound": "dair PAH-pah",
+    "example": "Mein Papa grillt im Garten. — My dad is grilling in the garden."
+  },
+  {
+    "word": "möchten",
+    "type": "verb",
+    "category": "useful",
+    "meaning": "would like",
+    "ipa": "/ˈmœçtn̩/",
+    "sound": "MOE-khten",
+    "example": "Wir möchten heute schwimmen. — We would like to swim today."
+  },
+  {
+    "word": "lieber",
+    "type": "adverb",
+    "category": "useful",
+    "meaning": "rather / preferably",
+    "ipa": "/ˈliːbɐ/",
+    "sound": "LEE-ber",
+    "example": "Ich wandere lieber im Frühling. — I prefer hiking in spring."
+  },
+  {
+    "word": "der Freund",
+    "type": "noun",
+    "category": "people",
+    "plural": "Plural: die Freunde",
+    "meaning": "male friend / boyfriend",
+    "ipa": "/deːɐ̯ fʁɔɪ̯nt/",
+    "sound": "dair froynt",
+    "example": "Mein Freund fährt gern Ski. — My friend likes skiing."
+  },
+  {
+    "word": "die Freundin",
+    "type": "noun",
+    "category": "people",
+    "plural": "Plural: die Freundinnen",
+    "meaning": "female friend / girlfriend",
+    "ipa": "/diː ˈfʁɔɪ̯ndɪn/",
+    "sound": "dee FROYN-din",
+    "example": "Meine Freundin spielt Gitarre. — My friend plays guitar."
+  },
+  {
+    "word": "vielleicht",
+    "type": "adverb",
+    "category": "useful",
+    "meaning": "perhaps / maybe",
+    "ipa": "/fiˈlaɪ̯çt/",
+    "sound": "fee-LYKHT",
+    "example": "Vielleicht scheint morgen die Sonne. — Maybe the sun will shine tomorrow."
+  },
+  {
+    "word": "die Idee",
+    "type": "noun",
+    "category": "useful",
+    "plural": "Plural: die Ideen",
+    "meaning": "idea",
+    "ipa": "/diː iˈdeː/",
+    "sound": "dee ee-DAY",
+    "example": "Das Picknick ist eine gute Idee. — The picnic is a good idea."
+  },
+  {
+    "word": "das Problem",
+    "type": "noun",
+    "category": "useful",
+    "plural": "Plural: die Probleme",
+    "meaning": "problem",
+    "ipa": "/das pʁoˈbleːm/",
+    "sound": "dahs proh-BLAYM",
+    "example": "Der Regen ist kein Problem. — The rain is not a problem."
+  },
+  {
+    "word": "der Hund",
+    "type": "noun",
+    "category": "people",
+    "plural": "Plural: die Hunde",
+    "meaning": "dog",
+    "ipa": "/deːɐ̯ hʊnt/",
+    "sound": "dair hoont",
+    "example": "Der Hund läuft durch den Park. — The dog runs through the park."
+  },
+  {
+    "word": "die Freizeit",
+    "type": "noun",
+    "category": "hobbies",
+    "plural": "Plural: die Freizeiten",
+    "meaning": "free time",
+    "ipa": "/diː ˈfʁaɪ̯t͡saɪ̯t/",
+    "sound": "dee FRY-tsyte",
+    "example": "In meiner Freizeit lese ich gern. — I like reading in my free time."
+  },
+  {
+    "word": "das Hobby",
+    "type": "noun",
+    "category": "hobbies",
+    "plural": "Plural: die Hobbys",
+    "meaning": "hobby",
+    "ipa": "/das ˈhɔbi/",
+    "sound": "dahs HOB-bee",
+    "example": "Fotografieren ist mein Hobby. — Photography is my hobby."
+  },
+  {
+    "word": "wichtig",
+    "type": "adjective",
+    "category": "useful",
+    "meaning": "important",
+    "ipa": "/ˈvɪçtɪç/",
+    "sound": "VIKH-tikh",
+    "example": "Bewegung ist wichtig. — Exercise is important."
+  },
+  {
+    "word": "die Berge",
+    "type": "noun",
+    "category": "travel",
+    "meaning": "mountains",
+    "ipa": "/diː ˈbɛʁɡə/",
+    "sound": "dee BAIR-guh",
+    "example": "Im Winter fahren wir in die Berge. — In winter we go to the mountains.",
+    "pluralNote": "Plural-only lesson word: die Berge"
+  },
+  {
+    "word": "der Ski",
+    "type": "noun",
+    "category": "hobbies",
+    "plural": "Plural: die Skier",
+    "meaning": "ski",
+    "ipa": "/deːɐ̯ ʃiː/",
+    "sound": "dair shee",
+    "example": "Die Skier stehen vor dem Hotel. — The skis are in front of the hotel."
+  },
+  {
+    "word": "fahren",
+    "type": "verb",
+    "category": "hobbies",
+    "meaning": "to drive / ride / travel",
+    "ipa": "/ˈfaːʁən/",
+    "sound": "FAH-ren",
+    "example": "Wir fahren mit dem Auto. — We are going by car."
+  },
+  {
+    "word": "joggen",
+    "type": "verb",
+    "category": "hobbies",
+    "meaning": "to jog",
+    "ipa": "/ˈd͡ʒɔɡn̩/",
+    "sound": "JOG-en",
+    "example": "Am Morgen jogge ich im Park. — I jog in the park in the morning."
+  },
+  {
+    "word": "schwimmen",
+    "type": "verb",
+    "category": "hobbies",
+    "meaning": "to swim",
+    "ipa": "/ˈʃvɪmən/",
+    "sound": "SHVIM-en",
+    "example": "Im Sommer schwimmen wir im See. — In summer we swim in the lake."
+  },
+  {
+    "word": "tanzen",
+    "type": "verb",
+    "category": "hobbies",
+    "meaning": "to dance",
+    "ipa": "/ˈtant͡sn̩/",
+    "sound": "TAHN-tsen",
+    "example": "Am Samstag tanzen wir im Klub. — We dance at the club on Saturday."
+  },
+  {
+    "word": "lesen",
+    "type": "verb",
+    "category": "hobbies",
+    "meaning": "to read",
+    "ipa": "/ˈleːzn̩/",
+    "sound": "LAY-zen",
+    "example": "Im Urlaub lese ich einen Krimi. — I read a crime novel on vacation."
+  },
+  {
+    "word": "der Spaß",
+    "type": "noun",
+    "category": "hobbies",
+    "meaning": "fun",
+    "ipa": "/deːɐ̯ ʃpaːs/",
+    "sound": "dair shpahs",
+    "example": "Das Wandern macht viel Spaß. — Hiking is lots of fun.",
+    "pluralNote": "Usually singular for ‘fun’: viel Spaß (die Späße means jokes / pranks)"
+  },
+  {
+    "word": "treffen",
+    "type": "verb",
+    "category": "hobbies",
+    "meaning": "to meet",
+    "ipa": "/ˈtʁɛfn̩/",
+    "sound": "TREF-en",
+    "example": "Ich treffe meine Freunde im Park. — I meet my friends in the park."
+  },
+  {
+    "word": "grillen",
+    "type": "verb",
+    "category": "food",
+    "meaning": "to barbecue / grill",
+    "ipa": "/ˈɡʁɪlən/",
+    "sound": "GRIL-en",
+    "example": "Am Wochenende grillen wir im Garten. — We barbecue in the garden at the weekend."
+  },
+  {
+    "word": "der Klub",
+    "type": "noun",
+    "category": "hobbies",
+    "plural": "Plural: die Klubs",
+    "meaning": "club",
+    "ipa": "/deːɐ̯ klʊp/",
+    "sound": "dair kloob",
+    "example": "Der Klub öffnet um acht Uhr. — The club opens at eight o’clock."
+  },
+  {
+    "word": "surfen (im Internet)",
+    "speech": "im Internet surfen",
+    "type": "verb",
+    "category": "hobbies",
+    "meaning": "to surf the internet",
+    "ipa": "/ˈzɜːɐ̯fn̩/",
+    "sound": "ZOER-fen",
+    "example": "Am Abend surfe ich im Internet. — I surf the internet in the evening."
+  },
+  {
+    "word": "der Krimi",
+    "type": "noun",
+    "category": "hobbies",
+    "plural": "Plural: die Krimis",
+    "meaning": "crime novel / crime film",
+    "ipa": "/deːɐ̯ ˈkʁiːmi/",
+    "sound": "dair KREE-mee",
+    "example": "Dieser Krimi ist spannend. — This crime story is exciting."
+  },
+  {
+    "word": "toll",
+    "type": "adjective",
+    "category": "useful",
+    "meaning": "great / fantastic",
+    "ipa": "/tɔl/",
+    "sound": "toll",
+    "example": "Der Ausflug war toll. — The day trip was great."
+  },
+  {
+    "word": "interessant",
+    "type": "adjective",
+    "category": "useful",
+    "meaning": "interesting",
+    "ipa": "/ɪntəʁɛˈsant/",
+    "sound": "in-teh-reh-ZAHNT",
+    "example": "Das Programm ist interessant. — The program is interesting."
+  },
+  {
+    "word": "der Herbst",
+    "type": "noun",
+    "category": "seasons",
+    "plural": "Plural: die Herbste",
+    "meaning": "autumn / fall",
+    "ipa": "/deːɐ̯ hɛʁpst/",
+    "sound": "dair hairpst",
+    "example": "Im Herbst ist es oft windig. — It is often windy in autumn."
+  },
+  {
+    "word": "der Winter",
+    "type": "noun",
+    "category": "seasons",
+    "plural": "Plural: die Winter",
+    "meaning": "winter",
+    "ipa": "/deːɐ̯ ˈvɪntɐ/",
+    "sound": "dair VIN-ter",
+    "example": "Im Winter liegt Schnee. — There is snow in winter."
+  },
+  {
+    "word": "der Sommer",
+    "type": "noun",
+    "category": "seasons",
+    "plural": "Plural: die Sommer",
+    "meaning": "summer",
+    "ipa": "/deːɐ̯ ˈzɔmɐ/",
+    "sound": "dair ZOM-mer",
+    "example": "Im Sommer ist es warm. — It is warm in summer."
+  },
+  {
+    "word": "der Frühling",
+    "type": "noun",
+    "category": "seasons",
+    "plural": "Plural: die Frühlinge",
+    "meaning": "spring",
+    "ipa": "/deːɐ̯ ˈfʁyːlɪŋ/",
+    "sound": "dair FRUE-ling",
+    "example": "Im Frühling blühen die Blumen. — The flowers bloom in spring."
+  },
+  {
+    "word": "das Frühjahr",
+    "type": "noun",
+    "category": "seasons",
+    "plural": "Plural: die Frühjahre",
+    "meaning": "springtime",
+    "ipa": "/das ˈfʁyːjaːɐ̯/",
+    "sound": "dahs FRUE-yahr",
+    "example": "Im Frühjahr wandern wir wieder. — We hike again in springtime."
+  },
+  {
+    "word": "die Jahreszeit",
+    "type": "noun",
+    "category": "seasons",
+    "plural": "Plural: die Jahreszeiten",
+    "meaning": "season",
+    "ipa": "/diː ˈjaːʁəsˌt͡saɪ̯t/",
+    "sound": "dee YAH-res-tsyte",
+    "example": "Der Frühling ist meine Lieblingsjahreszeit. — Spring is my favorite season."
+  },
+  {
+    "word": "die Reise",
+    "type": "noun",
+    "category": "travel",
+    "plural": "Plural: die Reisen",
+    "meaning": "journey / trip",
+    "ipa": "/diː ˈʁaɪ̯zə/",
+    "sound": "dee RY-zuh",
+    "example": "Die Reise nach Berlin dauert drei Stunden. — The trip to Berlin takes three hours."
+  },
+  {
+    "word": "der Urlaub",
+    "type": "noun",
+    "category": "travel",
+    "plural": "Plural: die Urlaube",
+    "meaning": "vacation / holiday",
+    "ipa": "/deːɐ̯ ˈuːɐ̯laʊ̯p/",
+    "sound": "dair OOR-lowp",
+    "example": "Im Urlaub fahren wir ans Meer. — On vacation we go to the sea."
+  },
+  {
+    "word": "wunderbar",
+    "type": "adjective",
+    "category": "useful",
+    "meaning": "wonderful",
+    "ipa": "/ˈvʊndɐbaːɐ̯/",
+    "sound": "VOON-der-bahr",
+    "example": "Das Wetter ist wunderbar. — The weather is wonderful."
+  },
+  {
+    "word": "die Natur",
+    "type": "noun",
+    "category": "travel",
+    "meaning": "nature",
+    "ipa": "/diː naˈtuːɐ̯/",
+    "sound": "dee nah-TOOR",
+    "example": "Wir genießen die Natur. — We enjoy nature.",
+    "pluralNote": "Usually singular: die Natur"
+  },
+  {
+    "word": "Nord-",
+    "speech": "Nord",
+    "type": "other",
+    "category": "seasons",
+    "meaning": "north / northern (prefix)",
+    "ipa": "/nɔʁt/",
+    "sound": "nort",
+    "example": "Wir fahren an die Nordsee. — We are going to the North Sea."
+  },
+  {
+    "word": "Ost-",
+    "speech": "Ost",
+    "type": "other",
+    "category": "seasons",
+    "meaning": "east / eastern (prefix)",
+    "ipa": "/ɔst/",
+    "sound": "ost",
+    "example": "Der Ostwind ist kalt. — The east wind is cold."
+  },
+  {
+    "word": "Süd-",
+    "speech": "Süd",
+    "type": "other",
+    "category": "seasons",
+    "meaning": "south / southern (prefix)",
+    "ipa": "/zyːt/",
+    "sound": "zuet",
+    "example": "Süddeutschland hat viele Berge. — Southern Germany has many mountains."
+  },
+  {
+    "word": "West-",
+    "speech": "West",
+    "type": "other",
+    "category": "seasons",
+    "meaning": "west / western (prefix)",
+    "ipa": "/vɛst/",
+    "sound": "vest",
+    "example": "Wir wohnen in Westberlin. — We live in West Berlin."
+  },
+  {
+    "word": "(wind)surfen",
+    "speech": "windsurfen",
+    "type": "verb",
+    "category": "hobbies",
+    "meaning": "to windsurf",
+    "ipa": "/ˈvɪntˌzɜːɐ̯fn̩/",
+    "sound": "VINT-zoer-fen",
+    "example": "Am Meer kann man windsurfen. — You can windsurf at the sea."
+  },
+  {
+    "word": "das Programm",
+    "type": "noun",
+    "category": "useful",
+    "plural": "Plural: die Programme",
+    "meaning": "program / schedule",
+    "ipa": "/das pʁoˈɡʁam/",
+    "sound": "dahs proh-GRAM",
+    "example": "Das Programm beginnt um zehn Uhr. — The program starts at ten o’clock."
+  },
+  {
+    "word": "heiß",
+    "type": "adjective",
+    "category": "weather",
+    "meaning": "hot",
+    "ipa": "/haɪ̯s/",
+    "sound": "hyss",
+    "example": "Heute ist es sehr heiß. — It is very hot today."
+  },
+  {
+    "word": "die Mitte",
+    "type": "noun",
+    "category": "seasons",
+    "plural": "Plural: die Mitten",
+    "meaning": "middle / center",
+    "ipa": "/diː ˈmɪtə/",
+    "sound": "dee MIT-tuh",
+    "example": "In der Mitte liegt ein See. — There is a lake in the middle."
+  },
+  {
+    "word": "die Möglichkeit",
+    "type": "noun",
+    "category": "useful",
+    "plural": "Plural: die Möglichkeiten",
+    "meaning": "possibility / option",
+    "ipa": "/diː ˈmøːklɪçkaɪ̯t/",
+    "sound": "dee MOEK-likh-kyte",
+    "example": "Es gibt viele Möglichkeiten für Sport. — There are many options for sport."
+  },
+  {
+    "word": "das Angebot",
+    "type": "noun",
+    "category": "useful",
+    "plural": "Plural: die Angebote",
+    "meaning": "offer",
+    "ipa": "/das ˈanɡəboːt/",
+    "sound": "dahs AHN-guh-boht",
+    "example": "Das Hotel hat ein gutes Angebot. — The hotel has a good offer."
+  },
+  {
+    "word": "das Mountainbike",
+    "type": "noun",
+    "category": "hobbies",
+    "plural": "Plural: die Mountainbikes",
+    "meaning": "mountain bike",
+    "ipa": "/das ˈmaʊ̯ntənbaɪ̯k/",
+    "sound": "dahs MOWN-ten-bike",
+    "example": "Mein Mountainbike ist neu. — My mountain bike is new."
+  },
+  {
+    "word": "klettern",
+    "type": "verb",
+    "category": "hobbies",
+    "meaning": "to climb",
+    "ipa": "/ˈklɛtɐn/",
+    "sound": "KLET-tern",
+    "example": "Wir klettern am Wochenende. — We go climbing at the weekend."
+  },
+  {
+    "word": "der Wind",
+    "type": "noun",
+    "category": "weather",
+    "plural": "Plural: die Winde",
+    "meaning": "wind",
+    "ipa": "/deːɐ̯ vɪnt/",
+    "sound": "dair vint",
+    "example": "Der Wind kommt aus dem Norden. — The wind comes from the north."
+  },
+  {
+    "word": "die Insel",
+    "type": "noun",
+    "category": "travel",
+    "plural": "Plural: die Inseln",
+    "meaning": "island",
+    "ipa": "/diː ˈɪnzl̩/",
+    "sound": "dee IN-zel",
+    "example": "Im Sommer fahren wir auf eine Insel. — In summer we travel to an island."
+  }
+];
+  const categories = {
+  "all": {
+    "label": "All words",
+    "icon": "✦",
+    "copy": "Study the complete Lektion 6 vocabulary list."
+  },
+  "weather": {
+    "label": "Weather",
+    "icon": "☀️",
+    "copy": "Sun, rain, snow, wind, temperatures, and forecasts."
+  },
+  "food": {
+    "label": "Food & Picnic",
+    "icon": "🧺",
+    "copy": "Picnics, menus, meals, and useful restaurant choices."
+  },
+  "hobbies": {
+    "label": "Hobbies & Sports",
+    "icon": "🚲",
+    "copy": "Music, reading, sport, and favorite free-time activities."
+  },
+  "travel": {
+    "label": "Travel & Nature",
+    "icon": "🏔️",
+    "copy": "Trips, holidays, mountains, islands, and the outdoors."
+  },
+  "seasons": {
+    "label": "Seasons & Directions",
+    "icon": "🧭",
+    "copy": "Seasons, compass directions, and regional words."
+  },
+  "people": {
+    "label": "People",
+    "icon": "👥",
+    "copy": "Friends, family, and an outdoor companion."
+  },
+  "useful": {
+    "label": "Useful Words",
+    "icon": "💬",
+    "copy": "Common verbs, descriptions, and phrases for natural sentences."
+  }
+};
+  const activeLesson = { id: "lektion-6", title: "Lektion 6", level: "A1", words };
+  let activeCategory = "all";
+  let order = words.map((_, index) => index);
+  let position = 0;
+  let revealed = false;
+  const storageKey = "german-" + activeLesson.id + "-progress";
+  let status = loadProgress();
+  const quizState = { current: -1, correct: 0, tried: 0, answered: false };
+  const sentenceState = { current: order[0], correct: 0, tried: 0, answered: false, tokens: [], tileOrder: [], selected: [] };
+  const $ = (id) => document.getElementById(id);
+
+  function loadProgress() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || "{}");
+      return saved && typeof saved === "object" ? saved : {};
+    } catch (_) { return {}; }
+  }
+
+  function saveProgress() {
+    try { localStorage.setItem(storageKey, JSON.stringify(status)); } catch (_) {}
+  }
+
+  function categoryIndices(key) {
+    return words.map((_, index) => index).filter(index => key === "all" || words[index].category === key);
+  }
+
+  function setCategory(key, shouldScroll = false) {
+    activeCategory = categories[key] ? key : "all";
+    order = categoryIndices(activeCategory);
+    position = 0;
+    sentenceState.current = order[0];
+    $("bankCategory").value = activeCategory;
+    renderCategoryPills();
+    render();
+    newQuizQuestion();
+    renderSentence();
+    buildWordBank();
+    if (shouldScroll) document.querySelector(".study-panel").scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  function renderCategoryPills() {
+    const holder = $("categoryPills");
+    holder.innerHTML = "";
+    Object.entries(categories).forEach(([key, meta]) => {
+      const button = document.createElement("button");
+      const count = categoryIndices(key).length;
+      button.type = "button";
+      button.className = "category-pill" + (key === activeCategory ? " active" : "");
+      button.setAttribute("aria-pressed", String(key === activeCategory));
+      button.innerHTML = '<span class="category-icon" aria-hidden="true">' + meta.icon + '</span><span><span class="category-label">' + meta.label + '</span><span class="category-total">' + count + ' words</span></span>';
+      button.addEventListener("click", () => setCategory(key, true));
+      holder.appendChild(button);
+    });
+    const meta = categories[activeCategory];
+    $("categoryFocusIcon").textContent = meta.icon;
+    $("categoryFocusLabel").textContent = meta.label + " · " + order.length + " words";
+    $("categoryFocusCopy").textContent = meta.copy;
+    $("categoryReset").hidden = activeCategory === "all";
+  }
+
+  function render() {
+    const item = words[order[position]];
+    $("counter").textContent = "WORD " + String(position + 1).padStart(3, "0") + " / " + order.length;
+    $("wordType").textContent = item.type;
+    $("wordCategory").textContent = categories[item.category].icon + " " + categories[item.category].label;
+    $("word").textContent = item.word;
+    $("pluralText").textContent = item.plural || item.pluralNote || "";
+    $("pluralListenBtn").hidden = !item.plural;
+    $("ipa").textContent = item.ipa;
+    $("sound").textContent = item.sound;
+    revealed = false;
+    $("answer").hidden = true;
+    $("answer").className = "answer";
+    $("answer").innerHTML = "";
+    $("answerReveal").hidden = false;
+    $("answerReveal").setAttribute("aria-expanded", "false");
+    $("answerReveal").textContent = "Tap to reveal the meaning and sentence";
+    updateProgress();
+  }
+
+  function reveal() {
+    const item = words[order[position]];
+    revealed = true;
+    $("answerReveal").setAttribute("aria-expanded", "true");
+    $("answerReveal").textContent = "Hide meaning and sentence";
+    $("answer").hidden = false;
+    $("answer").className = "answer";
+    $("answer").innerHTML = '<p class="meaning">' + item.meaning + '</p><p class="usage-label">How to use it</p><p class="example">' + item.example + '</p><button class="example-listen" id="exampleListenBtn" type="button"><span aria-hidden="true">🔊</span> Hear example</button>';
+    $("exampleListenBtn").addEventListener("click", event => {
+      event.stopPropagation();
+      speak(item.example.split(" — ")[0], $("exampleListenBtn"));
+    });
+  }
+
+  function move(step) {
+    position = (position + step + order.length) % order.length;
+    render();
+  }
+
+  function mark(value) {
+    status[order[position]] = value;
+    saveProgress();
+    move(1);
+  }
+
+  function updateProgress() {
+    const checked = order.filter(index => status[index]).length;
+    const learned = order.filter(index => status[index] === "know").length;
+    const review = order.filter(index => status[index] === "review").length;
+    $("learnedStat").textContent = learned;
+    $("reviewStat").textContent = review;
+    $("progressText").textContent = checked + " of " + order.length + " checked";
+    $("progressFill").style.width = (checked / order.length * 100) + "%";
+  }
+
+  function speak(text, button) {
+    if (!("speechSynthesis" in window)) {
+      alert("Audio pronunciation is not supported in this browser.");
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "de-DE";
+    utterance.rate = .72;
+    const voices = window.speechSynthesis.getVoices();
+    const german = voices.find(v => v.lang.toLowerCase() === "de-de") || voices.find(v => v.lang.toLowerCase().startsWith("de"));
+    if (german) utterance.voice = german;
+    utterance.onstart = () => button && button.classList.add("speaking");
+    utterance.onend = utterance.onerror = () => button && button.classList.remove("speaking");
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function speakGerman() {
+    const item = words[order[position]];
+    speak(item.speech || item.word, $("listenBtn"));
+  }
+
+  function speakPlural() {
+    const plural = words[order[position]].plural;
+    if (plural) speak(plural.replace(/^Plural:\s*/, ""), $("pluralListenBtn"));
+  }
+
+  function shuffled(items) {
+    const copy = [...items];
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  }
+
+  function newQuizQuestion() {
+    let next = order[Math.floor(Math.random() * order.length)];
+    if (order.length > 1 && next === quizState.current) {
+      const currentPosition = order.indexOf(next);
+      next = order[(currentPosition + 1) % order.length];
+    }
+    quizState.current = next;
+    quizState.answered = false;
+    const item = words[next];
+    $("quizWord").textContent = item.word;
+    $("quizPronunciation").textContent = categories[item.category].label + " · " + item.ipa + " · " + item.sound;
+    $("quizFeedback").textContent = "";
+    $("nextQuizBtn").hidden = true;
+    const distractors = shuffled(order.filter(index => index !== next)).slice(0, 3);
+    const options = shuffled([next, ...distractors]);
+    $("quizOptions").innerHTML = "";
+    options.forEach(index => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "quiz-option";
+      button.textContent = words[index].meaning;
+      button.addEventListener("click", () => answerQuiz(index, button));
+      $("quizOptions").appendChild(button);
+    });
+  }
+
+  function answerQuiz(index, selectedButton) {
+    if (quizState.answered) return;
+    quizState.answered = true;
+    quizState.tried += 1;
+    const correct = index === quizState.current;
+    if (correct) quizState.correct += 1;
+    [...$("quizOptions").querySelectorAll("button")].forEach(button => {
+      button.disabled = true;
+      if (button.textContent === words[quizState.current].meaning) button.classList.add("correct");
+    });
+    if (!correct) selectedButton.classList.add("wrong");
+    $("quizFeedback").textContent = correct ? "Correct — gut gemacht!" : "The answer is “" + words[quizState.current].meaning + ".”";
+    $("quizScore").textContent = quizState.correct + " correct · " + quizState.tried + " tried";
+    $("nextQuizBtn").hidden = false;
+  }
+
+  function sentenceParts(item) {
+    const parts = item.example.split(" — ");
+    return { german: parts[0], english: parts.slice(1).join(" — ") || item.meaning };
+  }
+
+  function renderSentence() {
+    const item = words[sentenceState.current];
+    const parts = sentenceParts(item);
+    sentenceState.answered = false;
+    sentenceState.tokens = parts.german.split(/\s+/).map((text, id) => ({ id, text }));
+    sentenceState.tileOrder = shuffled(sentenceState.tokens.map(token => token.id));
+    sentenceState.selected = [];
+    const categoryPosition = order.indexOf(sentenceState.current);
+    $("sentenceMeta").textContent = "Sentence " + String(categoryPosition + 1).padStart(3, "0") + " / " + order.length + " · " + categories[item.category].label;
+    $("sentenceWord").textContent = item.word;
+    $("sentenceEnglish").textContent = parts.english;
+    $("sentenceFeedback").className = "sentence-feedback";
+    $("sentenceFeedback").textContent = "";
+    $("sentenceNextBtn").hidden = true;
+    $("sentenceCheckBtn").hidden = false;
+    $("sentenceShowBtn").hidden = false;
+    $("sentenceClearBtn").hidden = false;
+    renderSentenceTiles();
+  }
+
+  function renderSentenceTiles() {
+    const answer = $("sentenceAnswer");
+    const tiles = $("sentenceTiles");
+    answer.className = "sentence-answer" + (sentenceState.answered ? " correct" : "");
+    answer.innerHTML = "";
+    tiles.innerHTML = "";
+    if (!sentenceState.selected.length) answer.innerHTML = '<span class="sentence-placeholder">Your sentence will appear here</span>';
+    else sentenceState.selected.forEach(id => answer.appendChild(makeSentenceTile(id, true)));
+    sentenceState.tileOrder.filter(id => !sentenceState.selected.includes(id)).forEach(id => tiles.appendChild(makeSentenceTile(id, false)));
+  }
+
+  function makeSentenceTile(id, selected) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "word-tile";
+    button.textContent = sentenceState.tokens[id].text;
+    button.disabled = sentenceState.answered;
+    button.setAttribute("aria-label", selected ? "Remove " + button.textContent : "Add " + button.textContent);
+    button.addEventListener("click", () => {
+      if (sentenceState.answered) return;
+      if (selected) sentenceState.selected = sentenceState.selected.filter(tokenId => tokenId !== id);
+      else sentenceState.selected.push(id);
+      $("sentenceAnswer").className = "sentence-answer";
+      $("sentenceFeedback").className = "sentence-feedback";
+      $("sentenceFeedback").textContent = "";
+      renderSentenceTiles();
+    });
+    return button;
+  }
+
+  function checkSentence() {
+    if (!sentenceState.selected.length) {
+      $("sentenceFeedback").className = "sentence-feedback wrong";
+      $("sentenceFeedback").textContent = "Choose some words first.";
+      return;
+    }
+    sentenceState.tried += 1;
+    const correct = sentenceState.selected.length === sentenceState.tokens.length && sentenceState.selected.every((id, index) => id === index);
+    if (!correct) {
+      $("sentenceScore").textContent = sentenceState.correct + " correct · " + sentenceState.tried + " tried";
+      $("sentenceAnswer").className = "sentence-answer wrong";
+      $("sentenceFeedback").className = "sentence-feedback wrong";
+      $("sentenceFeedback").textContent = "Not quite. Check the word order and try again.";
+      return;
+    }
+    sentenceState.correct += 1;
+    sentenceState.answered = true;
+    $("sentenceScore").textContent = sentenceState.correct + " correct · " + sentenceState.tried + " tried";
+    $("sentenceFeedback").className = "sentence-feedback correct";
+    $("sentenceFeedback").textContent = "Correct — sehr gut! Listen once, then continue.";
+    $("sentenceCheckBtn").hidden = true;
+    $("sentenceShowBtn").hidden = true;
+    $("sentenceClearBtn").hidden = true;
+    $("sentenceNextBtn").hidden = false;
+    renderSentenceTiles();
+  }
+
+  function showSentenceAnswer() {
+    sentenceState.selected = sentenceState.tokens.map(token => token.id);
+    $("sentenceAnswer").className = "sentence-answer";
+    $("sentenceFeedback").className = "sentence-feedback";
+    $("sentenceFeedback").textContent = "Answer shown — listen and repeat it, then try checking it.";
+    renderSentenceTiles();
+  }
+
+  function moveSentence(step) {
+    const currentPosition = order.indexOf(sentenceState.current);
+    sentenceState.current = order[(currentPosition + step + order.length) % order.length];
+    renderSentence();
+  }
+
+  function listenSentence() {
+    speak(sentenceParts(words[sentenceState.current]).german, $("sentenceListenBtn"));
+  }
+
+  function buildWordBank() {
+    const grid = $("bankGrid");
+    const query = $("bankSearch").value.trim().toLocaleLowerCase("de-DE");
+    const filter = $("bankFilter").value;
+    const matches = words.map((item, index) => ({ item, index })).filter(({ item }) => {
+      const matchesCategory = activeCategory === "all" || item.category === activeCategory;
+      const matchesText = !query || [item.word, item.meaning, item.plural || "", item.pluralNote || ""].some(value => value.toLocaleLowerCase("de-DE").includes(query));
+      const matchesType = filter === "all" || item.type === filter || (filter === "other" && item.type !== "noun" && item.type !== "verb");
+      return matchesCategory && matchesText && matchesType;
+    });
+    grid.innerHTML = "";
+    if (!matches.length) {
+      grid.innerHTML = '<p class="bank-empty">No matching words found. Try another search or category.</p>';
+      return;
+    }
+    matches.forEach(({ item, index }) => {
+      const card = document.createElement("article");
+      card.className = "bank-card";
+      card.innerHTML = '<span class="bank-number">' + String(index + 1).padStart(3, "0") + '</span><div><h3 class="bank-word" lang="de">' + item.word + '</h3><p class="bank-meaning">' + item.meaning + '</p><span class="bank-category-label">' + categories[item.category].icon + ' ' + categories[item.category].label + '</span>' + (item.plural || item.pluralNote ? '<span class="bank-plural-row"><span class="bank-plural">' + (item.plural || item.pluralNote) + '</span></span>' : '') + '<span class="bank-ipa">' + item.ipa + ' · ' + item.sound + '</span></div>';
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "bank-listen";
+      button.setAttribute("aria-label", "Listen to " + item.word);
+      button.title = "Hear word";
+      button.textContent = "🔊";
+      button.addEventListener("click", () => speak(item.speech || item.word, button));
+      card.appendChild(button);
+      if (item.plural) {
+        const pluralText = item.plural.replace(/^Plural:\s*/, "");
+        const pluralButton = document.createElement("button");
+        pluralButton.type = "button";
+        pluralButton.className = "bank-plural-listen";
+        pluralButton.setAttribute("aria-label", "Listen to plural " + pluralText);
+        pluralButton.textContent = "🔊 Plural";
+        pluralButton.addEventListener("click", () => speak(pluralText, pluralButton));
+        card.querySelector(".bank-plural-row").appendChild(pluralButton);
+      }
+      grid.appendChild(card);
+    });
+  }
+
+  $("answerReveal").addEventListener("click", () => {
+    if (!revealed) { reveal(); return; }
+    revealed = false;
+    $("answer").hidden = true;
+    $("answerReveal").setAttribute("aria-expanded", "false");
+    $("answerReveal").textContent = "Tap to reveal the meaning and sentence";
+  });
+  $("listenBtn").addEventListener("click", speakGerman);
+  $("pluralListenBtn").addEventListener("click", speakPlural);
+  $("reviewBtn").addEventListener("click", () => mark("review"));
+  $("knowBtn").addEventListener("click", () => mark("know"));
+  $("resetBtn").addEventListener("click", () => {
+    if (!confirm("Reset your saved lesson progress?")) return;
+    status = {};
+    saveProgress();
+    render();
+  });
+  $("categoryReset").addEventListener("click", () => setCategory("all"));
+  $("quizListenBtn").addEventListener("click", () => {
+    const item = words[quizState.current];
+    speak(item.speech || item.word, $("quizListenBtn"));
+  });
+  $("nextQuizBtn").addEventListener("click", newQuizQuestion);
+  $("sentenceListenBtn").addEventListener("click", listenSentence);
+  $("sentenceClearBtn").addEventListener("click", () => { sentenceState.selected = []; $("sentenceFeedback").textContent = ""; renderSentenceTiles(); });
+  $("sentenceShowBtn").addEventListener("click", showSentenceAnswer);
+  $("sentenceCheckBtn").addEventListener("click", checkSentence);
+  $("sentenceNextBtn").addEventListener("click", () => moveSentence(1));
+  $("bankSearch").addEventListener("input", buildWordBank);
+  $("bankFilter").addEventListener("change", buildWordBank);
+  $("bankCategory").addEventListener("change", event => setCategory(event.target.value));
+  $("shuffleBtn").addEventListener("click", () => { order = shuffled(order); position = 0; sentenceState.current = order[0]; render(); renderSentence(); });
+  document.addEventListener("keydown", event => {
+    if (["INPUT", "SELECT", "BUTTON"].includes(document.activeElement.tagName)) return;
+    if (event.key === " ") { event.preventDefault(); if (!revealed) reveal(); }
+    if (event.key === "ArrowRight") move(1);
+    if (event.key === "ArrowLeft") move(-1);
+  });
+  renderCategoryPills();
+  buildWordBank();
+  newQuizQuestion();
+  renderSentence();
+  render();
+})();
+  </script>
+</body>
+</html>
